@@ -10,10 +10,12 @@ import {MaterialModule} from '../material/material.module';
 
 import {AllUsersComponent} from './all-users/all-users.component';
 import {AppComponent} from './app.component';
+import {ContainerComponent} from './container/container.component';
 import {CounterComponent} from './counter/counter.component';
 import {FetchDataComponent} from './fetch-data/fetch-data.component';
 import {HomeComponent} from './home/home.component';
 import {NavMenuComponent} from './nav-menu/nav-menu.component';
+import {PageContentComponent} from './page-content/page-content.component';
 import {PageTitleComponent} from './page-title/page-title.component';
 import {SectionComponent} from './section/section.component';
 import {UserDetailsComponent} from './user-details/user-details.component';
@@ -22,7 +24,7 @@ import {UserDetailsComponent} from './user-details/user-details.component';
   declarations: [
     AppComponent, NavMenuComponent, HomeComponent, CounterComponent,
     FetchDataComponent, AllUsersComponent, SectionComponent, PageTitleComponent,
-    UserDetailsComponent
+    UserDetailsComponent, ContainerComponent, PageContentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

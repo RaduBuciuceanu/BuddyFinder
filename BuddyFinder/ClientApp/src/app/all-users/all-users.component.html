@@ -1,6 +1,6 @@
 <bf-page-title>All users</bf-page-title>
 
-<bf-section>
+<bf-page-content>
     <mat-accordion>
         <mat-expansion-panel *ngFor="let user of users;">
             <mat-expansion-panel-header>
@@ -13,4 +13,4 @@
             <bf-user-details [user]="user"></bf-user-details>
         </mat-expansion-panel>
     </mat-accordion>
-</bf-section>
+</bf-page-content>

@@ -1,0 +1,8 @@
+.bf-user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bf-user-details > * {
+    width: 100%;
+  }

@@ -4,10 +4,12 @@
     <mat-accordion>
         <mat-expansion-panel *ngFor="let user of users;">
             <mat-expansion-panel-header>
-                <mat-panel-title>
+                <mat-panel-title class="bf-hide-text-overflow">
                     <strong>{{user.firstName}} {{user.lastName}}</strong>
                 </mat-panel-title>
-                <mat-panel-description>{{user.firstName}} {{user.lastName}}, {{user.age}}, {{user.weight}}</mat-panel-description>
+                <mat-panel-description class="bf-hide-text-overflow">
+                    <span>{{user.firstName}} {{user.lastName}}, {{user.age}}, {{user.weight}}</span>
+                </mat-panel-description>
             </mat-expansion-panel-header>
 
             <bf-user-details [user]="user"></bf-user-details>

@@ -8,6 +8,7 @@ import {RouterModule} from '@angular/router';
 
 import {MaterialModule} from '../material/material.module';
 
+import {AllTeamsComponent} from './all-teams/all-teams.component';
 import {AllUsersComponent} from './all-users/all-users.component';
 import {AppComponent} from './app.component';
 import {ContainerComponent} from './container/container.component';
@@ -22,14 +23,15 @@ import {UserDetailsComponent} from './user-details/user-details.component';
   declarations: [
     AppComponent, NavMenuComponent, HomeComponent, AllUsersComponent,
     SectionComponent, PageTitleComponent, UserDetailsComponent,
-    ContainerComponent, PageContentComponent
+    ContainerComponent, PageContentComponent, AllTeamsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     BrowserAnimationsModule, FormsModule, HttpClientModule, MaterialModule,
     ReactiveFormsModule, RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
-      {path: 'all-users', component: AllUsersComponent}
+      {path: 'all-users', component: AllUsersComponent},
+      {path: 'all-teams', component: AllTeamsComponent}
     ])
   ],
   providers: [],

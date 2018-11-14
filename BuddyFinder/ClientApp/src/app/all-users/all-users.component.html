@@ -1,0 +1,16 @@
+<bf-page-title>All users</bf-page-title>
+
+<bf-section>
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let user of users;">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <strong>{{user.firstName}} {{user.lastName}}</strong>
+                </mat-panel-title>
+                <mat-panel-description>{{user.firstName}} {{user.lastName}}, {{user.age}}, {{user.weight}}</mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <bf-user-details [user]="user"></bf-user-details>
+        </mat-expansion-panel>
+    </mat-accordion>
+</bf-section>

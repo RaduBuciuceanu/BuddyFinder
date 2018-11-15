@@ -9,14 +9,32 @@ import { tap } from 'rxjs/operators';
     styleUrls: ['./all-teams.component.css']
 })
 export class AllTeamsComponent implements OnInit {
-    teams: ReadonlyArray<Team>;
+    teams: ReadonlyArray<ReadonlyArray<Team>>;
 
     constructor(private teamRepository: TeamRepository) { }
 
     ngOnInit(): void {
         this.teamRepository
             .getAll()
-            .pipe(tap((teams) => this.teams = teams))
+            .pipe(tap((teams) => this.teams = this.splitTeams(teams)))
             .subscribe();
+    }
+
+    private splitTeams(teams: ReadonlyArray<Team>): ReadonlyArray<ReadonlyArray<Team>> {
+        const result = [[]];
+
+        teams.forEach((_, index) => {
+            if (index !== 0 && index % 3 === 0) {
+                const temporary = [];
+
+                temporary.push(teams[index]);
+                temporary.push(teams[index - 1]);
+                temporary.push(teams[index - 2]);
+
+                result.push(temporary);
+            }
+        });
+
+        return result;
     }
 }

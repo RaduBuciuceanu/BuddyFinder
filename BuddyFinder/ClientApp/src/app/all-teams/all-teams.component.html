@@ -1,12 +1,25 @@
 <bf-page-title>All teams</bf-page-title>
 
 <bf-page-content>
-    <div class="w3-row">
-        <bf-section class="w3-col m4" *ngFor="let team of teams">
+    <div class="w3-row" *ngFor="let teamRow of teams">
+        <bf-section class="w3-col m4" *ngFor="let team of teamRow">
             <bf-container>
-                <mat-card>
-                    Some bullshit here.
-                </mat-card>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Random team title here.</mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                    Random description here. <br />
+                </mat-expansion-panel>
             </bf-container>
         </bf-section>
     </div>

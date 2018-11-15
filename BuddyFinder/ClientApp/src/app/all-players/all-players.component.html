@@ -1,6 +1,4 @@
-<bf-page-title>All players</bf-page-title>
-
-<bf-page-content>
+<bf-page [title]="'All players'">
     <mat-accordion>
         <mat-expansion-panel *ngFor="let player of players">
             <mat-expansion-panel-header>
@@ -15,4 +13,4 @@
             <bf-player-details [player]="player"></bf-player-details>
         </mat-expansion-panel>
     </mat-accordion>
-</bf-page-content>
+</bf-page>

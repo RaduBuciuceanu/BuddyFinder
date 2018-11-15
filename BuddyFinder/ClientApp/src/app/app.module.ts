@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 
 import { AllTeamsComponent } from './all-teams/all-teams.component';
-import { AllUsersComponent } from './all-users/all-users.component';
+import { AllPlayersComponent } from './all-players/all-players.component';
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
 import { HomeComponent } from './home/home.component';
@@ -22,28 +22,28 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { PlayerRepository } from './repositories/player-repository';
 
 @NgModule({
-  declarations: [
-    AppComponent, LeftNavMenuComponent, HomeComponent, AllUsersComponent,
-    SectionComponent, PageTitleComponent, UserDetailsComponent,
-    ContainerComponent, PageContentComponent, AllTeamsComponent,
-    TopNavMenuComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    BrowserAnimationsModule, FormsModule, HttpClientModule, MaterialModule,
-    ReactiveFormsModule, RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'all-users', component: AllUsersComponent },
-      { path: 'all-teams', component: AllTeamsComponent }
-    ])
-  ],
-  providers: [
-    PlayerRepository
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent, LeftNavMenuComponent, HomeComponent, AllPlayersComponent,
+        SectionComponent, PageTitleComponent, UserDetailsComponent,
+        ContainerComponent, PageContentComponent, AllTeamsComponent,
+        TopNavMenuComponent
+    ],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        BrowserAnimationsModule, FormsModule, HttpClientModule, MaterialModule,
+        ReactiveFormsModule, RouterModule.forRoot([
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: 'all-players', component: AllPlayersComponent },
+            { path: 'all-teams', component: AllTeamsComponent }
+        ])
+    ],
+    providers: [
+        PlayerRepository
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 
 platformBrowserDynamic()
-  .bootstrapModule(AppModule);
+    .bootstrapModule(AppModule);

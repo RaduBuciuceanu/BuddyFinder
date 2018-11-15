@@ -5,19 +5,19 @@ import { Player } from '../models/player';
 import { PlayerRepository } from '../repositories/player-repository';
 
 @Component({
-    selector: 'bf-all-users',
-    templateUrl: './all-users.component.html',
-    styleUrls: ['./all-users.component.css']
+    selector: 'bf-all-players',
+    templateUrl: './all-players.component.html',
+    styleUrls: ['./all-players.component.css']
 })
-export class AllUsersComponent implements OnInit {
-    users: ReadonlyArray<Player>;
+export class AllPlayersComponent implements OnInit {
+    players: ReadonlyArray<Player>;
 
     constructor(private playerRepository: PlayerRepository) { }
 
     ngOnInit(): void {
         this.playerRepository
             .getAll()
-            .pipe(tap(players => (this.users = players)))
+            .pipe(tap(players => (this.players = players)))
             .subscribe();
     }
 }

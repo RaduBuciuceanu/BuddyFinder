@@ -27,6 +27,14 @@
 
         <li [routerLinkActive]='["link-active"]'>
 
+          <a [routerLink]='["/create-player"]' (click)='collapse()'>
+
+            <span class='glyphicon glyphicon-th-list'></span> Create player
+          </a>
+        </li>
+
+        <li [routerLinkActive]='["link-active"]'>
+
           <a [routerLink]='["/all-players"]' (click)='collapse()'>
 
             <span class='glyphicon glyphicon-th-list'></span> All players

@@ -21,13 +21,14 @@ import { TopNavMenuComponent } from './top-nav-menu/top-nav-menu.component';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
 import { PlayerRepository } from './repositories/player-repository';
 import { TeamRepository } from './repositories/team-repository';
+import { CreatePlayerComponent } from './create-player/create-player.component';
 
 @NgModule({
     declarations: [
         AppComponent, LeftNavMenuComponent, HomeComponent, AllPlayersComponent,
         SectionComponent, PageTitleComponent, PlayerDetailsComponent,
         ContainerComponent, PageContentComponent, AllTeamsComponent,
-        TopNavMenuComponent
+        TopNavMenuComponent, CreatePlayerComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,7 +36,8 @@ import { TeamRepository } from './repositories/team-repository';
         ReactiveFormsModule, RouterModule.forRoot([
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'all-players', component: AllPlayersComponent },
-            { path: 'all-teams', component: AllTeamsComponent }
+            { path: 'all-teams', component: AllTeamsComponent },
+            { path: 'create-player', component: CreatePlayerComponent }
         ])
     ],
     providers: [

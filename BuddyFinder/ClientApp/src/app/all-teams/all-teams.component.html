@@ -1,7 +1,13 @@
 <bf-page-title>All teams</bf-page-title>
 
 <bf-page-content>
-    <mat-card *ngFor="let team of teams">
-        Some bullshit here.
-    </mat-card>
+    <div class="w3-row">
+        <bf-section class="w3-col m4" *ngFor="let team of teams">
+            <bf-container>
+                <mat-card>
+                    Some bullshit here.
+                </mat-card>
+            </bf-container>
+        </bf-section>
+    </div>
 </bf-page-content>

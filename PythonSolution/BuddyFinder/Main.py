@@ -1,4 +1,4 @@
-from dataProcessor import importData
+from dataProcessor import importTrainingData
 
 import numpy as np
 from keras.models import Sequential
@@ -33,7 +33,7 @@ def analyzeModel():
 
 
 if __name__ == '__main__':
-    teams = importData(".\Data\players.csv")
+    teams = importTrainingData(".\Data\players.csv")
 
     X = teams[:, 0:teams.shape[1] - 1]
     Y = teams[:, teams.shape[1] - 1]

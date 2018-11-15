@@ -2,7 +2,7 @@ import csv
 import numpy as np
 
 
-def importData(csvPath):
+def importTrainingData(csvPath):
     with open(csvPath, newline='') as csvFile:
         dataReader = csv.reader(csvFile, delimiter=',', quotechar='|')
         playerFields = 5
@@ -29,4 +29,3 @@ def importData(csvPath):
 
         teams = teams[1:, :]
         return teams
-

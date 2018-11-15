@@ -1,5 +1,42 @@
 <bf-page-title>Create new player</bf-page-title>
 
 <bf-page-content>
-    Some bullshit here.
+    <form>
+        <mat-form-field class="w3-block w3-margin-bottom w3-margin-top">
+            <input matInput placeholder="First name" required [formControl]="formControl" [(ngModel)]="firstName">
+            <mat-error>First name is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w3-block w3-margin-bottom">
+            <mat-error>Last name is required.</mat-error>
+            <input matInput placeholder="Last name" required [formControl]="formControl" [(ngModel)]="lastName">
+        </mat-form-field>
+
+        <mat-form-field class="w3-block w3-margin-bottom">
+            <input matInput placeholder="Age" required [formControl]="formControl" [(ngModel)]="age">
+            <mat-error>Age is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w3-block w3-margin-bottom">
+            <input matInput placeholder="Height" required [formControl]="formControl" [(ngModel)]="height">
+            <mat-error>Height is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w3-block w3-margin-bottom">
+            <input matInput placeholder="Weight" required [formControl]="formControl" [(ngModel)]="weight">
+            <mat-error>Weight is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w3-block w3-margin-bottom">
+            <input matInput placeholder="Experience" required [formControl]="formControl" [(ngModel)]="experience">
+            <mat-error>Experience is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w3-block w3-margin-bottom">
+            <input matInput placeholder="Matches per month" required [formControl]="formControl" [(ngModel)]="matchesPerMonth">
+            <mat-error>Matchers per mongh is required.</mat-error>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" class="w3-block" [disabled]="!canSave">Save</button>
+    </form>
 </bf-page-content>

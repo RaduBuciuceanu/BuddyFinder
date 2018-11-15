@@ -33,7 +33,7 @@ def analyzeModel():
 
 if __name__ == '__main__':
     teams = dataProcessor.importData(".\data\players.csv")
-    testingData = dataProcessor.importTestData(".\data\\testdata.csv")
+    testingData = dataProcessor.importTestData(".\data\\medium.csv")
 
     X = teams[:, 0:teams.shape[1] - 1]
     Y = teams[:, teams.shape[1] - 1]

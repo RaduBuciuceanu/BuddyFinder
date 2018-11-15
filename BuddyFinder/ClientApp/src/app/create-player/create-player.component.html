@@ -37,6 +37,6 @@
             <mat-error>Matchers per mongh is required.</mat-error>
         </mat-form-field>
 
-        <button mat-flat-button color="primary" class="w3-block" [disabled]="!canSave">Save</button>
+        <button mat-flat-button color="primary" class="w3-block" [disabled]="!canSave" (click)="save()">Save</button>
     </form>
 </bf-page-content>

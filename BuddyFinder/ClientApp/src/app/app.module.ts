@@ -22,13 +22,15 @@ import { PlayerDetailsComponent } from './player-details/player-details.componen
 import { PlayerRepository } from './repositories/player-repository';
 import { TeamRepository } from './repositories/team-repository';
 import { CreatePlayerComponent } from './create-player/create-player.component';
+import { LoadingService } from './services/loading-service';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
     declarations: [
         AppComponent, LeftNavMenuComponent, HomeComponent, AllPlayersComponent,
         SectionComponent, PageTitleComponent, PlayerDetailsComponent,
         ContainerComponent, PageContentComponent, AllTeamsComponent,
-        TopNavMenuComponent, CreatePlayerComponent
+        TopNavMenuComponent, CreatePlayerComponent, LoadingComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,6 +43,7 @@ import { CreatePlayerComponent } from './create-player/create-player.component';
         ])
     ],
     providers: [
+        LoadingService,
         PlayerRepository,
         TeamRepository
     ],

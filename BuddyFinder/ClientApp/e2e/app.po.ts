@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getMainHeading() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('bf-root h1')).getText();
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PlayerRepository } from '../repositories/player-repository';
 import { FormControl, Validators } from '@angular/forms';
+import { LoadingService } from '../services/loading-service';
 
 @Component({
     selector: 'bf-create-player',
@@ -18,7 +19,7 @@ export class CreatePlayerComponent {
     experience: string;
     matchesPerMonth: string;
 
-    constructor(private playerRepository: PlayerRepository) {
+    constructor(private playerRepository: PlayerRepository, private loadingService: LoadingService) {
         this.formControl = new FormControl('', [Validators.required]);
     }
 
@@ -31,6 +32,12 @@ export class CreatePlayerComponent {
             this.isValid(this.experience) &&
             this.isValid(this.matchesPerMonth) &&
             !this.formControl.hasError('required');
+    }
+
+    save(): void {
+        this.loadingService
+            .execute(true)
+            .subscribe();
     }
 
     private isValid(value: string): boolean {

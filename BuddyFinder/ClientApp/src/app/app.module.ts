@@ -13,17 +13,19 @@ import {AllUsersComponent} from './all-users/all-users.component';
 import {AppComponent} from './app.component';
 import {ContainerComponent} from './container/container.component';
 import {HomeComponent} from './home/home.component';
-import {NavMenuComponent} from './nav-menu/nav-menu.component';
+import {LeftNavMenuComponent} from './nav-menu/left-nav-menu.component';
 import {PageContentComponent} from './page-content/page-content.component';
 import {PageTitleComponent} from './page-title/page-title.component';
 import {SectionComponent} from './section/section.component';
+import {TopNavMenuComponent} from './top-nav-menu/top-nav-menu.component';
 import {UserDetailsComponent} from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent, NavMenuComponent, HomeComponent, AllUsersComponent,
+    AppComponent, LeftNavMenuComponent, HomeComponent, AllUsersComponent,
     SectionComponent, PageTitleComponent, UserDetailsComponent,
-    ContainerComponent, PageContentComponent, AllTeamsComponent
+    ContainerComponent, PageContentComponent, AllTeamsComponent,
+    TopNavMenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

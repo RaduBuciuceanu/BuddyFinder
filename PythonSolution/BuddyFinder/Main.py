@@ -1,4 +1,5 @@
 from dataProcessor import importData
+
 import numpy
 from keras.models import Sequential
 from keras.layers import Dense
@@ -11,4 +12,10 @@ from sklearn.pipeline import Pipeline
 
 if __name__ == '__main__':
     players = importData(".\Data\players.csv")
-    print(players)
+    print(players.shape)
+
+    # split into input (X) and output (Y) variables
+    X = players[:, 0:47]
+    Y = players[:, 48]
+
+    

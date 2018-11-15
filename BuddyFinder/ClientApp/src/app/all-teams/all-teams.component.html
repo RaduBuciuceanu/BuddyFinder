@@ -1,6 +1,4 @@
-<bf-page-title>All teams</bf-page-title>
-
-<bf-page-content>
+<bf-page [title]="'All teams'">
     <div class="w3-row" *ngFor="let teamRow of teams">
         <bf-section class="w3-col m4" *ngFor="let team of teamRow">
             <bf-container>
@@ -23,4 +21,4 @@
             </bf-container>
         </bf-section>
     </div>
-</bf-page-content>
+</bf-page>

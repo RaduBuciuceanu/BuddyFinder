@@ -24,13 +24,14 @@ import { TeamRepository } from './repositories/team-repository';
 import { CreatePlayerComponent } from './create-player/create-player.component';
 import { LoadingService } from './services/loading-service';
 import { LoadingComponent } from './loading/loading.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
     declarations: [
         AppComponent, LeftNavMenuComponent, HomeComponent, AllPlayersComponent,
         SectionComponent, PageTitleComponent, PlayerDetailsComponent,
         ContainerComponent, PageContentComponent, AllTeamsComponent,
-        TopNavMenuComponent, CreatePlayerComponent, LoadingComponent
+        TopNavMenuComponent, CreatePlayerComponent, LoadingComponent, PageComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

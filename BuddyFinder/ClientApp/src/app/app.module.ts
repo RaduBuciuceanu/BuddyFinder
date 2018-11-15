@@ -18,13 +18,13 @@ import { PageContentComponent } from './page-content/page-content.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SectionComponent } from './section/section.component';
 import { TopNavMenuComponent } from './top-nav-menu/top-nav-menu.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
+import { PlayerDetailsComponent } from './player-details/player-details.component';
 import { PlayerRepository } from './repositories/player-repository';
 
 @NgModule({
     declarations: [
         AppComponent, LeftNavMenuComponent, HomeComponent, AllPlayersComponent,
-        SectionComponent, PageTitleComponent, UserDetailsComponent,
+        SectionComponent, PageTitleComponent, PlayerDetailsComponent,
         ContainerComponent, PageContentComponent, AllTeamsComponent,
         TopNavMenuComponent
     ],

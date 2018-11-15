@@ -20,6 +20,7 @@ import { SectionComponent } from './section/section.component';
 import { TopNavMenuComponent } from './top-nav-menu/top-nav-menu.component';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
 import { PlayerRepository } from './repositories/player-repository';
+import { TeamRepository } from './repositories/team-repository';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { PlayerRepository } from './repositories/player-repository';
         ])
     ],
     providers: [
-        PlayerRepository
+        PlayerRepository,
+        TeamRepository
     ],
     bootstrap: [AppComponent]
 })

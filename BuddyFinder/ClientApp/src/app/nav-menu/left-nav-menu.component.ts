@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'bf-nav-menu',
-  templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.css']
+  selector: 'bf-left-nav-menu',
+  templateUrl: './left-nav-menu.component.html',
+  styleUrls: ['./left-nav-menu.component.css']
 })
-export class NavMenuComponent {
+export class LeftNavMenuComponent {
   isExpanded = false;
 
   collapse() {

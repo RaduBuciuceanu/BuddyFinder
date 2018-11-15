@@ -1,4 +1,4 @@
-<div class='main-nav'>
+<div class='main-nav bf-padding-top-60'>
   <div class='navbar navbar-inverse'>
     <div class='navbar-header'>
 
@@ -10,10 +10,6 @@
         <span class='icon-bar'></span>
         <span class='icon-bar'></span>
       </button>
-
-      <a class='navbar-brand' [routerLink]='["/"]'>
-        BuddyFinder
-      </a>
     </div>
 
     <div class='clearfix'></div>
@@ -31,9 +27,17 @@
 
         <li [routerLinkActive]='["link-active"]'>
 
-          <a [routerLink]='["/all-users"]' (click)='collapse()'>
+          <a [routerLink]='["/create-player"]' (click)='collapse()'>
 
-            <span class='glyphicon glyphicon-th-list'></span> All users
+            <span class='glyphicon glyphicon-th-list'></span> Create player
+          </a>
+        </li>
+
+        <li [routerLinkActive]='["link-active"]'>
+
+          <a [routerLink]='["/all-players"]' (click)='collapse()'>
+
+            <span class='glyphicon glyphicon-th-list'></span> All players
           </a>
         </li>
 

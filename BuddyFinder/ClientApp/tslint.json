@@ -18,13 +18,13 @@
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs",
       "rxjs/Rx"
     ],
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "spaces",
+      4
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -138,6 +138,14 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "no-submodule-imports": [
+      true,
+      "rxjs/operators",
+      "@angular/core",
+      "@angular/common/http",
+      "@angular/platform-browser/animations"
+    ],
+    "newline-per-chained-call": true
   }
 }

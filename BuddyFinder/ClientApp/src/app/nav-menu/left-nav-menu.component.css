@@ -13,7 +13,7 @@ li.link-active a:focus {
 /* Keep the nav menu independent of scrolling and on top of other items */
 .main-nav {
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 0;
     right: 0;
     z-index: 1;
@@ -56,4 +56,8 @@ li.link-active a:focus {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+}
+
+.bf-padding-top-60 {
+    padding-top: 54px;
 }

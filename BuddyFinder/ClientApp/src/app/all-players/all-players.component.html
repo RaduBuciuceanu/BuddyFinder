@@ -1,18 +1,18 @@
-<bf-page-title>All users</bf-page-title>
+<bf-page-title>All players</bf-page-title>
 
 <bf-page-content>
     <mat-accordion>
-        <mat-expansion-panel *ngFor="let user of users;">
+        <mat-expansion-panel *ngFor="let player of players">
             <mat-expansion-panel-header>
                 <mat-panel-title class="bf-hide-text-overflow">
-                    <strong>{{user.firstName}} {{user.lastName}}</strong>
+                    <strong>{{player.firstName}} {{player.lastName}}</strong>
                 </mat-panel-title>
                 <mat-panel-description class="bf-hide-text-overflow">
-                    <span>{{user.firstName}} {{user.lastName}}, {{user.age}}, {{user.weight}}</span>
+                    <span>{{player.firstName}} {{player.lastName}}, {{player.age}}, {{player.weight}}</span>
                 </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <bf-user-details [user]="user"></bf-user-details>
+            <bf-player-details [player]="player"></bf-player-details>
         </mat-expansion-panel>
     </mat-accordion>
 </bf-page-content>

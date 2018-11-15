@@ -1,8 +1,8 @@
-.bf-user-details {
+.bf-player-details {
     display: flex;
     flex-direction: column;
   }
   
-  .bf-user-details > * {
+  .bf-player-details > * {
     width: 100%;
   }

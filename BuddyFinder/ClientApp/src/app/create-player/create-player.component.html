@@ -1,6 +1,4 @@
-<bf-page-title>Create new player</bf-page-title>
-
-<bf-page-content>
+<bf-page [title]="'Create new player'">
     <form>
         <mat-form-field class="w3-block w3-margin-bottom w3-margin-top">
             <input matInput placeholder="First name" required [formControl]="formControl" [(ngModel)]="firstName">
@@ -39,4 +37,4 @@
 
         <button mat-flat-button color="primary" class="w3-block" [disabled]="!canSave" (click)="save()">Save</button>
     </form>
-</bf-page-content>
+</bf-page>

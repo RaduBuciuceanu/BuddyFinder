@@ -5,15 +5,15 @@ import numpy as np
 def importData(csvPath):
     with open(csvPath, newline='') as csvFile:
         dataReader = csv.reader(csvFile, delimiter=',', quotechar='|')
-        playerRows = 4
+        playerFields = 5
         teamMembers = 12
-        teams = np.empty((1, playerRows * teamMembers + 1))
+        teams = np.empty((1, playerFields * teamMembers + 1))
         team = []
         playersFeedback = 0
         index = 0
 
         for row in dataReader:
-            player = np.array(list(map(int, row[1:5])))
+            player = np.array(list(map(int, row[1:6])))
             team = np.hstack((team, player))
             playersFeedback += int(row[6])
             index += 1

@@ -12,8 +12,6 @@ from sklearn.pipeline import Pipeline
 import constants
 import enpointsController as server
 
-modelFilePath = ".\model\model.h5"
-
 
 def createBaselineModel():
     model = Sequential()
@@ -44,13 +42,13 @@ def trainModel():
 
     model = createBaselineModel()
     model.fit(X, Y, epochs=300, batch_size=10, verbose=2)
-    model.save(modelFilePath)
+    model.save(constants.ModelFilePath)
 
 
 if __name__ == '__main__':
-    my_file = Path(modelFilePath)
+    my_file = Path(constants.ModelFilePath)
     if not my_file.is_file():
         trainModel()
 
-    model = load_model(modelFilePath)
+    model = load_model(constants.ModelFilePath)
     server.app.run(port=constants.Port)

@@ -1,12 +1,18 @@
 import dataProcessor as dataProcessor
 import numpy as np
+from pathlib import Path
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.models import load_model
 from keras.wrappers.scikit_learn import KerasRegressor
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
+import constants
+import enpointsController as server
+
+modelFilePath = ".\model\model.h5"
 
 
 def createBaselineModel():
@@ -31,15 +37,20 @@ def analyzeModel():
     print("Standardized: %.2f (%.2f) Buddy" % (results.mean(), results.std()))
 
 
-if __name__ == '__main__':
-    teams = dataProcessor.importData(".\data\players.csv")
-    testingData = dataProcessor.importTestData(".\data\\medium.csv")
-
+def trainModel():
+    teams = dataProcessor.importTrainingData(constants.PlayersFilePath)
     X = teams[:, 0:teams.shape[1] - 1]
     Y = teams[:, teams.shape[1] - 1]
 
     model = createBaselineModel()
     model.fit(X, Y, epochs=300, batch_size=10, verbose=2)
+    model.save(modelFilePath)
 
-    prediction = model.predict(testingData)
-    print("Predicted: %s" % prediction)
+
+if __name__ == '__main__':
+    my_file = Path(modelFilePath)
+    if not my_file.is_file():
+        trainModel()
+
+    model = load_model(modelFilePath)
+    server.app.run(port=constants.Port)

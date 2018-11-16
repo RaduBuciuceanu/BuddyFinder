@@ -5,51 +5,52 @@ import numpy as np
 def importData(csvPath):
     with open(csvPath, newline='') as csvFile:
         dataReader = csv.reader(csvFile, delimiter=',', quotechar='|')
-        playerFields = 5
-        teamMembers = 12
-        teams = np.empty((1, playerFields * teamMembers + 1))
-        team = []
-        playersFeedback = 0
-        index = 0
-
+        rows = []
         for row in dataReader:
-            player = np.array(list(map(int, row[1:6])))
-            team = np.hstack((team, player))
-            playersFeedback += int(row[6])
-            index += 1
+            rows.append(row)
 
-            if index % teamMembers == 0:
-                matchPrecisionMean = int(playersFeedback / teamMembers)
-                team = np.hstack((team, matchPrecisionMean))
-                # team.reshape(team.shape[0], 1)
-                teams = np.vstack((teams, team))
+        return np.array(rows)
 
-                team = []
-                playersFeedback = 0
 
-        teams = teams[1:, :]
-        return teams
+def importTrainingData(csvPath):
+    playerFields = 5
+    teamMembers = 12
+    teams = np.empty((1, playerFields * teamMembers + 1))
+    team = []
+    playersFeedback = 0
+
+    data = importData(csvPath)
+    for index, row in enumerate(data):
+        player = np.array(list(map(int, row[1:6])))
+        team = np.hstack((team, player))
+        playersFeedback += int(row[6])
+
+        if index != 0 and (index + 1) % teamMembers == 0:
+            matchPrecisionMean = int(playersFeedback / teamMembers)
+            team = np.hstack((team, matchPrecisionMean))
+            teams = np.vstack((teams, team))
+
+            team = []
+            playersFeedback = 0
+
+    teams = teams[1:, :]
+    return teams
 
 
 def importTestData(csvPath):
-    with open(csvPath, newline='') as csvFile:
-        dataReader = csv.reader(csvFile, delimiter=',', quotechar='|')
-        playerFields = 5
-        teamMembers = 12
-        testingTeams = np.empty((1, playerFields * teamMembers))
-        team = []
-        index = 0
+    playerFields = 5
+    teamMembers = 12
+    testingTeams = np.empty((1, playerFields * teamMembers))
+    team = []
 
-        for row in dataReader:
-            player = np.array(list(map(int, row[0:5])))
-            team = np.hstack((team, player))
-            index += 1
+    data = importData(csvPath)
+    for index, row in enumerate(data):
+        player = np.array(list(map(int, row[0:5])))
+        team = np.hstack((team, player))
 
-            if index % teamMembers == 0:
-                # team.reshape(team.shape[0], 1)
-                testingTeams = np.vstack((testingTeams, team))
+        if index % teamMembers == 0:
+            testingTeams = np.vstack((testingTeams, team))
+            team = []
 
-                team = []
-
-        testingTeams = testingTeams[1:, :]
-        return testingTeams
+    testingTeams = testingTeams[1:, :]
+    return testingTeams

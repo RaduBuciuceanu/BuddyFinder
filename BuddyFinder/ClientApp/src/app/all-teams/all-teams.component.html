@@ -5,6 +5,7 @@
                 <mat-expansion-panel class="w3-round">
                     <mat-expansion-panel-header>
                         <mat-panel-title><b>Generated team</b></mat-panel-title>
+                        <mat-panel-description>Confidence: {{team.confidence}}</mat-panel-description>
                     </mat-expansion-panel-header>
 
                     <div *ngFor="let player of team.players">

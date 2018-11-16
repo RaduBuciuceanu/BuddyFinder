@@ -13,7 +13,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 import constants
 import enpointsController as server
-from itertools import combinations
 from combinator import Generator
 
 def createBaselineModel():
@@ -50,16 +49,16 @@ def trainModel():
 
 if __name__ == '__main__':
 
-    start = date.now()
-    Generator().createCombinationsFile(constants.CombinationsFilePath)
-    end = date.now()
-    print("Diff: %s" % (end - start))
-
-    my_file = Path(constants.ModelFilePath)
-    if not my_file.is_file():
+    modelFile = Path(constants.ModelFilePath)
+    if not modelFile.is_file():
         trainModel()
 
-    model = load_model(constants.ModelFilePath)
+    combinationsFile = Path(constants.CombinationsFilePath)
+    if not combinationsFile.is_file():
+        Generator().createCombinationsFile(constants.CombinationsFilePath)
+
+    Generator().getBestTeams(constants.CombinationsFilePath)
+
     server.app.run(port=constants.Port)
 
 

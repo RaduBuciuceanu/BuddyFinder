@@ -25,13 +25,14 @@ import { CreatePlayerComponent } from './create-player/create-player.component';
 import { LoadingService } from './services/loading-service';
 import { LoadingComponent } from './loading/loading.component';
 import { PageComponent } from './page/page.component';
+import { EvaluateTeamComponent } from './evaluate-team/evaluate-team.component';
 
 @NgModule({
     declarations: [
         AppComponent, LeftNavMenuComponent, HomeComponent, AllPlayersComponent,
         SectionComponent, PageTitleComponent, PlayerDetailsComponent,
         ContainerComponent, PageContentComponent, AllTeamsComponent,
-        TopNavMenuComponent, CreatePlayerComponent, LoadingComponent, PageComponent
+        TopNavMenuComponent, CreatePlayerComponent, LoadingComponent, PageComponent, EvaluateTeamComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,7 +41,8 @@ import { PageComponent } from './page/page.component';
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'all-players', component: AllPlayersComponent },
             { path: 'all-teams', component: AllTeamsComponent },
-            { path: 'create-player', component: CreatePlayerComponent }
+            { path: 'create-player', component: CreatePlayerComponent },
+            { path: 'evaluate-team', component: EvaluateTeamComponent },
         ])
     ],
     providers: [

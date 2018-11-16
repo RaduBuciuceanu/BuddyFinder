@@ -8,3 +8,9 @@
 .bf-padding-top-60 {
   padding-top: 60px;
 }
+
+@media(min-width:1046px) {
+  .bf-padding-left-20-p {
+    padding-left: 20%;
+  }
+}

@@ -1,12 +1,12 @@
 <bf-top-nav-menu></bf-top-nav-menu>
 
-<div class='container-fluid'>
-  <div class='row'>
-    <div class='col-sm-3'>
-      <bf-left-nav-menu></bf-left-nav-menu>
+<div class='w3-row bf-height-100'>
+    <div class='w3-col m3 bf-height-100'>
+        <bf-left-nav-menu></bf-left-nav-menu>
     </div>
-    <div class='col-sm-9 body-content bf-padding-top-60'>
-      <router-outlet></router-outlet>
+
+    <div class='w3-col m9 body-content bf-padding-top-60 bf-height-100'>
+        <bf-loading [hidden]="!isLoading" class="bf-height-100"></bf-loading>
+        <router-outlet [hidden]="isLoading" class="bf-height-100"></router-outlet>
     </div>
-  </div>
 </div>

@@ -1,8 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { tap, switchMap, share, delay } from 'rxjs/operators';
 
 import { Player } from '../models/player';
 import { PlayerRepository } from '../repositories/player-repository';
+import { LoadingService } from '../services/loading-service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'bf-all-players',
@@ -10,14 +12,16 @@ import { PlayerRepository } from '../repositories/player-repository';
     styleUrls: ['./all-players.component.css']
 })
 export class AllPlayersComponent implements OnInit {
-    players: ReadonlyArray<Player>;
+    players: Observable<ReadonlyArray<Player>>;
 
-    constructor(private playerRepository: PlayerRepository) { }
+    constructor(private loadingService: LoadingService,
+        private playerRepository: PlayerRepository) { }
 
     ngOnInit(): void {
-        this.playerRepository
-            .getAll()
-            .pipe(tap(players => (this.players = players)))
-            .subscribe();
+        this.players = this.loadingService
+            .execute(true)
+            .pipe(switchMap((_) => this.playerRepository.getAll()))
+            .pipe(tap((_) => this.loadingService.execute(false).subscribe()));
     }
+
 }

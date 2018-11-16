@@ -1,18 +1,18 @@
-<bf-page-title>All players</bf-page-title>
-
-<bf-page-content>
+<bf-page [title]="'All players'">
     <mat-accordion>
-        <mat-expansion-panel *ngFor="let player of players">
-            <mat-expansion-panel-header>
-                <mat-panel-title class="bf-hide-text-overflow">
-                    <strong>{{player.firstName}} {{player.lastName}}</strong>
-                </mat-panel-title>
-                <mat-panel-description class="bf-hide-text-overflow">
-                    <span>{{player.firstName}} {{player.lastName}}, {{player.age}}, {{player.weight}}</span>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+        <div *ngIf="players | async; let players; else loading">
+            <mat-expansion-panel *ngFor="let player of players">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="bf-hide-text-overflow">
+                        <strong>{{player.firstName}} {{player.lastName}}</strong>
+                    </mat-panel-title>
+                    <mat-panel-description class="bf-hide-text-overflow">
+                        <span>{{player.firstName}} {{player.lastName}}, {{player.age}}, {{player.weight}}</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
 
-            <bf-player-details [player]="player"></bf-player-details>
-        </mat-expansion-panel>
+                <bf-player-details [player]="player"></bf-player-details>
+            </mat-expansion-panel>
+        </div>
     </mat-accordion>
-</bf-page-content>
+</bf-page>

@@ -10,7 +10,8 @@ An application that offers some match making services for the players from a tow
 * [Bootstrap 3.3](https://getbootstrap.com/docs/3.3)
 * [Angular material design](https://material.angular.io)
 * DeepLearning (python library)
-* Cheras (python library)
+* Keras (python library)
+* Rxjs (javascript library for observable pattern)
 
 
 ## Components

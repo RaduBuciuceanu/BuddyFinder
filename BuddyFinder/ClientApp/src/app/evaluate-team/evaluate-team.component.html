@@ -1,5 +1,22 @@
 <bf-page [title]="'Evaluate team'">
     <form class="bf-evaluate-team">
+        <mat-form-field>
+            <mat-select placeholder="Team" class="w3-block">
+                <div *ngIf="teams | async; let teams; else loading">
+                    <mat-option *ngFor="let team of teams" [value]="'Generated team'">
+                        Generated team
+                    </mat-option>
+                </div>
+            </mat-select>
+        </mat-form-field>
 
+        <mat-form-field>
+            <mat-select placeholder="Option">
+                <mat-option [value]="'Satisfied'">Satisfied</mat-option>
+                <mat-option [value]="'Dissatisfied'">Dissatisfied</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-flat-button class="w3-block" (click)="evaluate()">Evaluate</button>
     </form>
 </bf-page>

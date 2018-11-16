@@ -1,9 +1,14 @@
-from flask import Flask
+import pickle
+
+import numpy
+from flask import Flask, make_response
+from flask_jsonpify import jsonify
 from flask_restful import Api
-import jsonify
+from flask_restful.representations import json
 
 import constants
 import dataProcessor
+from player import Player
 
 app = Flask(constants.ApiName)
 
@@ -17,5 +22,19 @@ class Controller:
 
 @app.route('/players', methods=['Get'])
 def getPlayers():
-    players = dataProcessor.importData(constants.PlayersFilePath)
-    return jsonify(players)
+    rowsPlayers = dataProcessor.importData(constants.PlayersFilePath)
+    players = []
+
+    for row in rowsPlayers:
+        player = str(Player(row))
+        players.append(player)
+
+    result = '['
+    result += ','.join(players)
+    result += ']'
+    return result
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)

@@ -1,3 +1,5 @@
+from flask_restful.representations import json
+
 from playerattributes import PlayerAttributes
 
 
@@ -11,5 +13,4 @@ class Player:
         self.heightCategory = row[PlayerAttributes.heightCategory.value]
 
     def __repr__(self):
-        return f"Name {self.name} | Experience {self.experienceYears} | Months {self.monthMatches} " \
-               f"| Age {self.age}"
+        return f"{{\"Name\": \"{self.name}\", \"Age\": {self.age}, \"MonthMatches\": {self.monthMatches}, \"ExperienceYears\": {self.experienceYears}, \"WeightCategory\": {self.weightCategory}, \"HeightCategory\": {self.heightCategory}}}"

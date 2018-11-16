@@ -9,6 +9,8 @@
   padding-top: 60px;
 }
 
-.bf-padding-left-20-p {
-  padding-left: 20%;
+@media(min-width:1046px) {
+  .bf-padding-left-20-p {
+    padding-left: 20%;
+  }
 }

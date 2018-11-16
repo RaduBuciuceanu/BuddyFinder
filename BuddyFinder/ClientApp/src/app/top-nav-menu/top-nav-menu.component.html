@@ -4,4 +4,10 @@
             Buddy finder. <small><b>Find your lovely team for the game you love...</b></small>
         </strong>
     </h1>
+
+    <button mat-button class="w3-round bf-menu-button" (click)="open()">
+        <mat-icon>menuitem</mat-icon>
+    </button>
 </mat-toolbar>
+
+<div (window:resize)="onWindowResized()"></div>

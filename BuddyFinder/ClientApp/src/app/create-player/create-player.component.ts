@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { PlayerRepository } from '../repositories/player-repository';
 import { FormControl, Validators } from '@angular/forms';
 import { LoadingService } from '../services/loading-service';
+import { switchMap, map } from 'rxjs/operators';
+import { Player } from '../models/player';
 
 @Component({
     selector: 'bf-create-player',
@@ -37,7 +39,19 @@ export class CreatePlayerComponent {
     save(): void {
         this.loadingService
             .execute(true)
+            .pipe(map(() => this.buildPlayer()))
+            .pipe(switchMap((player) => this.playerRepository.insert(player)))
+            .pipe(switchMap((_) => this.loadingService.execute(false)))
             .subscribe();
+    }
+
+    private buildPlayer(): Player {
+        return new Player({
+            firstName: this.firstName,
+            lastName: this.lastName,
+            age: +this.age,
+            weight: this.weight
+        });
     }
 
     private isValid(value: string): boolean {

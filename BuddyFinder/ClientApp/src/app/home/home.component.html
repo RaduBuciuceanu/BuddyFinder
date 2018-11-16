@@ -1,29 +1,93 @@
 <bf-page [title]="'Home'">
-  <h1>Hello, world!</h1>
-  <p>Welcome to your new single-page application, built with:</p>
-  <ul>
-    <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a>
-      for cross-platform server-side code</li>
-    <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for
-      client-side code</li>
-    <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-  </ul>
-  <p>To help you get started, we've also set up:</p>
-  <ul>
-    <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return
-      here.</li>
-    <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>.
-      It
-      runs in the background automatically, so your client-side resources are dynamically built on demand and the
-      page
-      refreshes when you modify any file.</li>
-    <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and
-      your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified,
-      ahead-of-time compiled JavaScript files.</li>
-  </ul>
-  <p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in
-    that
-    directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to
-    install
-    extra packages into it.</p>
+    <div class="w3-row w3-section w3-card w3-round">
+        <div class="w3-col m4">
+            <img src="../../assets/home-1.jpg" class="w3-image w3-section w3-container" style="width:450px; clear: right">
+        </div>
+
+        <div class="w3-col m7">
+            <p class="w3-section w3-container" style="font-size: 18px;">Welcome to <b>Buddy finder</b>. Here you
+                can
+                find a teamate for the
+                game you like the most. Feel free to create an account and wait for the generation of the teams.
+                Our
+                algorithm is
+                always trying to generate
+                balanced teams based on your age, weight, experience and number of matches. Also it is always
+                learning
+                once you give use the feedback after each match.</p>
+        </div>
+    </div>
+
+    <div class="w3-row">
+        <div class="w3-col m6">
+            <bf-section>
+                <bf-container>
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h3><b>Create new player</b></h3>
+                            </mat-card-title>
+                        </mat-card-header>
+
+                        <img mat-card-image src="../../assets/home-2.PNG" alt="Creation of a new player..." class="w3-section w3-container">
+
+                        <mat-card-content>
+                            <p>This view is used to create a new player. Initially, the save button is disabled untill
+                                all
+                                the
+                                requirements are satisfied. Fill all the required fields and press the save button.</p>
+                        </mat-card-content>
+                    </mat-card>
+                </bf-container>
+            </bf-section>
+        </div>
+
+        <div class="w3-col m6">
+            <bf-section>
+                <bf-container>
+                    <mat-card class="w3-hover-shadow">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h3><b>All players</b></h3>
+                            </mat-card-title>
+                        </mat-card-header>
+
+                        <img mat-card-image src="../../assets/home-3.PNG" alt="View all existent players..." class="w3-section w3-container">
+
+                        <mat-card-content>
+                            <p>This view is used to view all the existent players. You can also click on one of them to
+                                view the details of that player. Only a single player can be expanded at 1 point of
+                                time.</p>
+                        </mat-card-content>
+                    </mat-card>
+                </bf-container>
+            </bf-section>
+        </div>
+    </div>
+
+    <div class="w3-row">
+        <div class="w3-col m6">
+            <bf-section>
+                <bf-container>
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h3><b>All teams</b></h3>
+                            </mat-card-title>
+                        </mat-card-header>
+
+                        <img mat-card-image src="../../assets/home-4.PNG" alt="View all existent teams..." class="w3-section w3-container">
+
+                        <mat-card-content>
+                            <p>
+                                This view is used to view all the generated teams. You can also click on any team to
+                                view all the players inside it. It is possible to view more details at once.
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </bf-container>
+            </bf-section>
+        </div>
+    </div>
+
 </bf-page>

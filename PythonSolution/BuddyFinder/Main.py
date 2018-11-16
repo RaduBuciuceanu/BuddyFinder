@@ -57,8 +57,21 @@ if __name__ == '__main__':
     if not combinationsFile.is_file():
         Generator().createCombinationsFile(constants.CombinationsFilePath)
 
-    Generator().getBestTeams(constants.CombinationsFilePath)
-
     server.app.run(port=constants.Port)
+
+
+    from sshtunnel import SSHTunnelForwarder
+
+    server = SSHTunnelForwarder(
+        'buddyfinder.ro',
+        remote_bind_address=('127.0.0.1', constants.Port)
+    )
+
+    server.start()
+
+    print(server.local_bind_port)  # show assigned local port
+    # work with `SECRET SERVICE` through `server.local_bind_port`.
+
+    server.stop()
 
 

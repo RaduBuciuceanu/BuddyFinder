@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../models/team';
 import { TeamRepository } from '../repositories/team-repository';
-import { tap } from 'rxjs/operators';
+import { tap, delay, switchMap } from 'rxjs/operators';
+import { LoadingService } from '../services/loading-service';
+import { pipe } from 'rxjs';
 
 @Component({
     selector: 'bf-all-teams',
@@ -11,12 +13,20 @@ import { tap } from 'rxjs/operators';
 export class AllTeamsComponent implements OnInit {
     teams: ReadonlyArray<ReadonlyArray<Team>>;
 
-    constructor(private teamRepository: TeamRepository) { }
+    constructor(private loadingService: LoadingService, private teamRepository: TeamRepository) { }
 
     ngOnInit(): void {
         this.teamRepository
             .getAll()
             .pipe(tap((teams) => this.teams = this.splitTeams(teams)))
+            .subscribe();
+    }
+
+    generateTeams(): void {
+        this.loadingService
+            .execute(true)
+            .pipe(switchMap(() => this.teamRepository.generateTeams()))
+            .pipe(switchMap(() => this.loadingService.execute(false)))
             .subscribe();
     }
 

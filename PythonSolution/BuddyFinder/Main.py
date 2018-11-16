@@ -15,6 +15,7 @@ import constants
 import enpointsController as server
 from combinator import Generator
 
+
 def createBaselineModel():
     model = Sequential()
     model.add(Dense(150, input_dim=60, kernel_initializer='normal', activation='relu'))
@@ -58,20 +59,5 @@ if __name__ == '__main__':
         Generator().createCombinationsFile(constants.CombinationsFilePath)
 
     server.app.run(port=constants.Port)
-
-
-    from sshtunnel import SSHTunnelForwarder
-
-    server = SSHTunnelForwarder(
-        'buddyfinder.ro',
-        remote_bind_address=('127.0.0.1', constants.Port)
-    )
-
-    server.start()
-
-    print(server.local_bind_port)  # show assigned local port
-    # work with `SECRET SERVICE` through `server.local_bind_port`.
-
-    server.stop()
 
 

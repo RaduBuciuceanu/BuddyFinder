@@ -5,7 +5,7 @@ from itertools import combinations
 import numpy
 
 import constants
-from dataProcessor import importData, importTestData
+from dataProcessor import importData
 from keras.models import load_model
 
 
@@ -42,7 +42,6 @@ class Generator:
                 predictionCombinedTeam = numpy.array(predictionCombinedTeam)
                 predictionCombinedTeam = predictionCombinedTeam.reshape(1, predictionCombinedTeam.shape[0])
 
-                # test = importTestData(constants.TestDataFilePath)
                 prediction = self.model.predict(predictionCombinedTeam)
 
                 predictions.append((prediction[0][0], fullFiledCombinedTeam))
@@ -52,18 +51,3 @@ class Generator:
 
 def predictionComparer(pred):
     return pred[0]
-
-class CombinatorThread(threading.Thread):
-    def __init__(self, target, *args):
-        self.target = target
-        self.args = args
-        threading.Thread.__init__(self)
-
-    def run(self):
-        self.target(*self._args)
-
-
-# Example usage
-def someOtherFunc(data, key):
-    print
-    "someOtherFunc was called : data=%s; key=%s" % (str(data), str(key))

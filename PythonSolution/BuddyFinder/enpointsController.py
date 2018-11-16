@@ -1,8 +1,6 @@
 from flask import Flask, make_response
 from flask_jsonpify import jsonify
 from flask_restful import Api
-from keras.models import load_model
-
 import constants
 import dataProcessor
 from combinator import Generator
@@ -16,7 +14,6 @@ class Controller:
     def __init__(self):
         self.api = Api(app)
         self.app = app
-
 
 
 @app.route('/players', methods=['Get'])
@@ -57,6 +54,7 @@ def getAllTeams():
     result = result[0: -1]
     result += ']'
     return result
+
 
 @app.errorhandler(404)
 def not_found(error):

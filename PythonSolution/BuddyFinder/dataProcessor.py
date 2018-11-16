@@ -48,7 +48,7 @@ def importTestData(csvPath):
         player = np.array(list(map(int, row[0:5])))
         team = np.hstack((team, player))
 
-        if index % teamMembers == 0:
+        if index != 0 and (index + 1) % teamMembers == 0:
             testingTeams = np.vstack((testingTeams, team))
             team = []
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PlayerRepository } from '../repositories/player-repository';
 import { FormControl, Validators } from '@angular/forms';
 import { LoadingService } from '../services/loading-service';
+import { delay, switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'bf-create-player',
@@ -37,6 +38,8 @@ export class CreatePlayerComponent {
     save(): void {
         this.loadingService
             .execute(true)
+            .pipe(delay(3000))
+            .pipe(switchMap((_) => this.loadingService.execute(false)))
             .subscribe();
     }
 

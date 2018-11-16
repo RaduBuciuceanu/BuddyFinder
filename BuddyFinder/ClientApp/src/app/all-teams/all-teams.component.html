@@ -4,19 +4,17 @@
             <bf-container>
                 <mat-expansion-panel class="w3-round">
                     <mat-expansion-panel-header>
-                        <mat-panel-title>Random team title here.</mat-panel-title>
+                        <mat-panel-title><b>Generated team</b></mat-panel-title>
                     </mat-expansion-panel-header>
 
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
-                    Random description here. <br />
+                    <div *ngFor="let player of team.players">
+                        <bf-section>
+                            <button mat-button class="w3-block">
+                                <b>{{player.firstName}} {{player.lastName}}</b> <small>{{player.age}} years,
+                                    {{player.weight}}</small>
+                            </button>
+                        </bf-section>
+                    </div>
                 </mat-expansion-panel>
             </bf-container>
         </bf-section>

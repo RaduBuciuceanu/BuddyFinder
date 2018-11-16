@@ -1,3 +1,5 @@
+from _datetime import datetime as date
+
 import dataProcessor as dataProcessor
 import numpy as np
 from pathlib import Path
@@ -11,7 +13,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 import constants
 import enpointsController as server
-
+from itertools import combinations
+from combinator import Generator
 
 def createBaselineModel():
     model = Sequential()
@@ -46,9 +49,17 @@ def trainModel():
 
 
 if __name__ == '__main__':
+
+    start = date.now()
+    Generator().createCombinationsFile(constants.CombinationsFilePath)
+    end = date.now()
+    print("Diff: %s" % (end - start))
+
     my_file = Path(constants.ModelFilePath)
     if not my_file.is_file():
         trainModel()
 
     model = load_model(constants.ModelFilePath)
     server.app.run(port=constants.Port)
+
+

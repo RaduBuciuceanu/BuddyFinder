@@ -1,54 +1,19 @@
-<div class='main-nav bf-padding-top-60'>
-  <div class='navbar navbar-inverse'>
-    <div class='navbar-header'>
+<div class="bf-height-100 bf-left-menu bf-padding-top-60">
+    <mat-list class="w3-block">
+        <button mat-button mat-list-item class="w3-block w3-left-align bf-menu-item" (click)="navigateTo('')">
+            <mat-icon>home</mat-icon> &nbsp;&nbsp;&nbsp;&nbsp; <strong>Home</strong>
+        </button>
 
-      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'
-        [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+        <button mat-button mat-list-item class="w3-block w3-left-align bf-menu-item" (click)="navigateTo('/create-player')">
+            <mat-icon>menuitem</mat-icon> &nbsp;&nbsp;&nbsp;&nbsp; <span><strong>Create player</strong></span>
+        </button>
 
-        <span class='sr-only'>Toggle navigation</span>
-        <span class='icon-bar'></span>
-        <span class='icon-bar'></span>
-        <span class='icon-bar'></span>
-      </button>
-    </div>
+        <button mat-button mat-list-item class="w3-block w3-left-align bf-menu-item" (click)="navigateTo('/all-players')">
+            <mat-icon>menuitem</mat-icon> &nbsp;&nbsp;&nbsp;&nbsp; <strong>All players</strong>
+        </button>
 
-    <div class='clearfix'></div>
-
-    <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
-
-      <ul class='nav navbar-nav'>
-
-        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-
-          <a [routerLink]='["/"]' (click)='collapse()'>
-            <span class='glyphicon glyphicon-home'></span> Home
-          </a>
-        </li>
-
-        <li [routerLinkActive]='["link-active"]'>
-
-          <a [routerLink]='["/create-player"]' (click)='collapse()'>
-
-            <span class='glyphicon glyphicon-th-list'></span> Create player
-          </a>
-        </li>
-
-        <li [routerLinkActive]='["link-active"]'>
-
-          <a [routerLink]='["/all-players"]' (click)='collapse()'>
-
-            <span class='glyphicon glyphicon-th-list'></span> All players
-          </a>
-        </li>
-
-        <li [routerLinkActive]='["link-active"]'>
-
-          <a [routerLink]='["/all-teams"]' (click)='collapse()'>
-
-            <span class='glyphicon glyphicon-th-list'></span> All teams
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+        <button mat-button mat-list-item class="w3-block w3-left-align bf-menu-item" (click)="navigateTo('/all-teams')">
+            <mat-icon>menuitem</mat-icon> &nbsp;&nbsp;&nbsp;&nbsp; <strong>All teams</strong>
+        </button>
+    </mat-list>
 </div>

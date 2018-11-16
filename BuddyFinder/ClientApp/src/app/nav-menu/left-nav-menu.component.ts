@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'bf-left-nav-menu',
-  templateUrl: './left-nav-menu.component.html',
-  styleUrls: ['./left-nav-menu.component.css']
+    selector: 'bf-left-nav-menu',
+    templateUrl: './left-nav-menu.component.html',
+    styleUrls: ['./left-nav-menu.component.css']
 })
 export class LeftNavMenuComponent {
-  isExpanded = false;
 
-  collapse() {
-    this.isExpanded = false;
-  }
+    constructor(private router: Router) { }
 
-  toggle() {
-    this.isExpanded = !this.isExpanded;
-  }
+    navigateTo(page: string): void {
+        this.router.navigate([page]);
+    }
 }

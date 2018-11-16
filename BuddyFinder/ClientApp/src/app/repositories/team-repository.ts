@@ -18,15 +18,19 @@ export class TeamRepository {
 
     private buildRandomTeams(): ReadonlyArray<Team> {
         return [
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
-            new Team({ players: this.buildRandomPlayers() }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' }),
+            new Team({ players: this.buildRandomPlayers(), confidence: '30.123123141' })
         ];
     }
 

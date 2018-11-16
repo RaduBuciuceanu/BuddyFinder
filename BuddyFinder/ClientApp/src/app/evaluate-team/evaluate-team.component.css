@@ -1,0 +1,8 @@
+.bf-evaluate-team {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bf-evaluate-team > * {
+    width: 100%;
+  }

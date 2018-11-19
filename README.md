@@ -11,7 +11,7 @@ An application that offers some match making services for the players from a tow
 * [Angular material design](https://material.angular.io)
 * DeepLearning (python library)
 * Keras (python library)
-* Rxjs (javascript library for observable pattern)
+* [Rxjs](https://rxjs-dev.firebaseapp.com/)
 
 
 ## Components
